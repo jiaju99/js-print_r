@@ -14,3 +14,22 @@ Author: <a href="http://feilong.org" target="_blank">http://feilong.org</a>
 <b>gap</b>,  to insert before output</p>
 
 <p>Thanks to <a href="https://github.com/Hootrix/js_print_r" target="_blank">Hootrix</a></p>
+
+<h3>举例</h3>
+
+<pre>
+/** uglified below. Use this on your project ~ **/
+
+/* eg. have a test */
+var arr = [];
+arr['0'] = ['i', 'love', 'you','baby'];
+arr['1'] = ['a', 'b', 'c','d'];
+arr['1'][1] = {a:'6y', b:'9z'};
+arr['2'] = {'k0':'va','k1':'vb'};
+arr['3'] = {};
+arr['4'] = null;
+var arrTree=flprintr(arr,0,'----');
+console.log(arrTree);
+var arrTree2=flprintr(arr,0);
+console.log(arrTree2);
+</pre>
