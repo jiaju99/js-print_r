@@ -16,9 +16,8 @@ Author: <a href="http://feilong.org" target="_blank">http://feilong.org</a>
 <p>Thanks to <a href="https://github.com/Hootrix/js_print_r" target="_blank">Hootrix</a></p>
 
 <h3>举例</h3>
-
 <pre>
-/** uglified below. Use this on your project ~ **/
+/** Use uglified flprintr on your project. **/
 
 /* eg. have a test */
 var arr = [];
