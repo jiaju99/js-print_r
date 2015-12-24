@@ -1,6 +1,8 @@
-# fl_print_r To output the content of an array or object in JS, as print_r() in PHP
-<h1>打印 js对象数组 函数, 模仿php的print_r()</h1>
-<h2>flprintr.js-fl20151223gz</h2>
+# print_r array or object in javascript
+<h1>Output the content of an js array or object, as PHP print_r() does.</h1>
+<h3>打印 js对象数组 函数, 模仿php的print_r()</h3>
+<p>flprintr.js-fl20151223gz</p>
+
 <p>
 Github: <a href="https://github.com/jiaju99/flprintr" target="_blank">https://github.com/jiaju99/flprintr</a><br>
 Author: <a href="http://feilong.org" target="_blank">http://feilong.org</a></p>
@@ -30,4 +32,3 @@ console.log(arrTree2);
 var arrTree3=flprintr(arr,'    ');
 console.log(arrTree3);
 </pre>
-
