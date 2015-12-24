@@ -17,7 +17,7 @@ Author: <a href="http://feilong.org" target="_blank">http://feilong.org</a>
 
 <h3>举例</h3>
 <pre>
-/** Use uglified flprintr on your project. **/
+/** On your project,Use uglified flprintr **/
 
 /* eg. have a test */
 var arr = [];
@@ -27,8 +27,13 @@ arr['1'][1] = {a:'6y', b:'9z'};
 arr['2'] = {'k0':'va','k1':'vb'};
 arr['3'] = {};
 arr['4'] = null;
-var arrTree=flprintr(arr,0,'----');
-console.log(arrTree);
-var arrTree2=flprintr(arr,0);
+
+var arrTree1=flprintr(arr);
+console.log(arrTree1);
+
+var arrTree2=flprintr(arr,'----');
 console.log(arrTree2);
+
+var arrTree3=flprintr(arr,'    ');
+console.log(arrTree3);
 </pre>
