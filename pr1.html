@@ -2,31 +2,19 @@
 <html>
 <head>
 <meta  charset="utf-8" />
-<title>js打印数组函数 模仿php的print_r</title>
+<title>feilong js print_r like php print_r</title>
 </head>
 <body>
 
-# flprintr
-<h1>打印 js对象数组 函数, 模仿php的print_r()</h1>
-<h2>flprintr.js-fl20151223gz</h2>
-<p>To output the content of an array or object in JS, as print_r() in PHP.<br>
-Github: <a href="https://github.com/jiaju99/printr" target="_blank">https://github.com/jiaju99/flprintr</a><br>
-Author: <a href="http://feilong.org" target="_blank">http://feilong.org</a></p>
-
-
-<p><b>what</b>, now what to output. default none<br>
-<b>deep</b>, now the deep length. begin from 0<br>
-<b>gap</b>,  to insert before output</p>
-
-<p>Thanks to <a href="https://github.com/Hootrix/js_print_r" target="_blank">Hootrix</a></p>
-
 
 <script>
+/*development edition*/
+
 
 /**
 flprintr.js-fl20151223gz
 To output the content of an array or object as print_r() in PHP. 
-Github:https://github.com/jiaju99/printr
+Github:https://github.com/jiaju99/flprintr
 Author: http://feilong.org
 **/
 
@@ -66,47 +54,21 @@ function flprintr(what,gap,deep){
   return floutput;
 }/*0.5*/
 
-
-
-
-
-
-/** uglified below. Use this on your project ~ **/
-
-/*github.com/jiaju99/flprintr*/function flfillgap(a,b){return a=a?a:'....',b?new Array(b).join(a):''}function flprintr(a,b,c){var d,e,f,g;switch(c=c?c:0,d='',e=typeof a,e){case'undefined':d+='undefined';break;case'number':d+=a;break;case'string':d+=a;break;case'object':c++,f=flfillgap(b,c),d+="\n"+f+'('+"\n",g=0;for(g in a)d+=f+' ['+g+']'+'=>'+flprintr(a[g],b,c)+"\n";d+=f+')'}return d}/*feilong.org20151223gz*/
-
-
-
-
-
-
-
-
-
-/* eg. have a test */
-var arr = [];
-arr['0'] = ['i', 'love', 'you','baby'];
-arr['1'] = ['a', 'b', 'c','d'];
-arr['1'][1] = {a:'6y', b:'9z'};
-arr['2'] = {'k0':'va','k1':'vb'};
-arr['3'] = {};
-arr['4'] = null;
-
-var arrTree=flprintr(arr,'----');
-console.log(arrTree);
-
-var arrTree2=flprintr(arr);
-console.log(arrTree2);
-
-var arrTree3=flprintr(arr,'    ');
-console.log(arrTree3);
-
-
-
-
-
-
 </script>
+
+
+
+
+
+
+# flprintr
+<h1>打印 js对象数组 函数, 模仿php的print_r()</h1>
+<h2>flprintr.js-fl20151223gz</h2>
+<p>To output the content of an array or object in JS, as print_r() in PHP.<br>
+Github: <a href="https://github.com/jiaju99/flprintr" target="_blank">https://github.com/jiaju99/flprintr</a><br>
+Author: <a href="http://feilong.org" target="_blank">http://feilong.org</a></p>
+<p><b>what</b>, now what to output. default none<br>
+<b>gap</b>,  to insert before output</p>
 
 
 <h3>举例</h3>
@@ -133,6 +95,33 @@ console.log(arrTree3);
 </pre>
 
 
+
+<script>
+/** minified edition. Use this on your project **/
+
+/*github.com/jiaju99/flprintr*/function flfillgap(a,b){return a=a?a:'....',b?new Array(b).join(a):''}function flprintr(a,b,c){var d,e,f,g;switch(c=c?c:0,d='',e=typeof a,e){case'undefined':d+='undefined';break;case'number':d+=a;break;case'string':d+=a;break;case'object':c++,f=flfillgap(b,c),d+="\n"+f+'('+"\n",g=0;for(g in a)d+=f+' ['+g+']'+'=>'+flprintr(a[g],b,c)+"\n";d+=f+')'}return d}/*feilong.org20151223gz*/
+
+
+
+
+/* eg. have a test */
+var arr = [];
+arr['0'] = ['i', 'love', 'you','baby'];
+arr['1'] = ['a', 'b', 'c','d'];
+arr['1'][1] = {a:'6y', b:'9z'};
+arr['2'] = {'k0':'va','k1':'vb'};
+arr['3'] = {};
+arr['4'] = null;
+
+var arrTree=flprintr(arr,'----');
+console.log(arrTree);
+
+var arrTree2=flprintr(arr);
+console.log(arrTree2);
+
+var arrTree3=flprintr(arr,'    ');
+console.log(arrTree3);
+</script>
 
 </body>
 </html>
