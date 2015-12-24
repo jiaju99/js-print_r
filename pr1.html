@@ -32,13 +32,14 @@ Author: http://feilong.org
 
 
 /*how many gaps to fill before */
-function flfillgap(num,gap){
+function flfillgap(gap,num){
 gap=gap?gap:'....';/*just for development*/
 return num ? new Array(num).join(gap) : '';
 }/*0.5*/
 
 /*now what to output */
-function flprintr(what,deep,gap){
+function flprintr(what,gap,deep){
+	 deep=deep?deep:0;
   var floutput='',type=typeof(what);
   
   switch(type){
@@ -49,11 +50,11 @@ function flprintr(what,deep,gap){
 	case 'object' : {
 	  
 	  deep++;//alert(deep);//1 2 3 4
-	  var deepgap = flfillgap(deep,gap);
+	  var deepgap = flfillgap(gap,deep);
 	  
 	  floutput += "\n"+deepgap+'('+"\n";  
 	  var i=0;for(i in what){
-	  floutput += deepgap+' ['+i+']'+'=>'+flprintr(what[i],deep,gap)+"\n";
+	  floutput += deepgap+' ['+i+']'+'=>'+flprintr(what[i],gap,deep)+"\n";
 	  }  
 	  floutput += deepgap+')';
 	  
@@ -72,7 +73,7 @@ function flprintr(what,deep,gap){
 
 /** uglified below. Use this on your project ~ **/
 
-/*flprintr.js-fl20151223gz*/function flprintr(a,b,c){var f,g,d='',e=typeof a;switch(e){case'undefined':d+='undefined';break;case'number':d+=a;break;case'string':d+=a;break;case'object':b++,f=flfillgap(b,c),d+="\n"+f+'('+"\n",g=0;for(g in a)d+=f+' ['+g+']'+'=>'+flprintr(a[g],b,c)+"\n";d+=f+')'}return d}function flfillgap(a,b){return b=b?b:'    ',a?new Array(a).join(b):''}/*feilong.org20151223gz*/
+/*github.com/jiaju99/flprintr*/function flfillgap(a,b){return a=a?a:'....',b?new Array(b).join(a):''}function flprintr(a,b,c){var d,e,f,g;switch(c=c?c:0,d='',e=typeof a,e){case'undefined':d+='undefined';break;case'number':d+=a;break;case'string':d+=a;break;case'object':c++,f=flfillgap(b,c),d+="\n"+f+'('+"\n",g=0;for(g in a)d+=f+' ['+g+']'+'=>'+flprintr(a[g],b,c)+"\n";d+=f+')'}return d}/*feilong.org20151223gz*/
 
 
 
@@ -91,13 +92,14 @@ arr['2'] = {'k0':'va','k1':'vb'};
 arr['3'] = {};
 arr['4'] = null;
 
-var arrTree=flprintr(arr,0,'----');
+var arrTree=flprintr(arr,'----');
 console.log(arrTree);
 
-var arrTree2=flprintr(arr,0);
+var arrTree2=flprintr(arr);
 console.log(arrTree2);
 
-
+var arrTree3=flprintr(arr,'    ');
+console.log(arrTree3);
 
 
 
@@ -105,5 +107,32 @@ console.log(arrTree2);
 
 
 </script>
+
+
+<h3>举例</h3>
+<pre>
+/** On your project,Use uglified flprintr **/
+
+/* eg. have a test */
+var arr = [];
+arr['0'] = ['i', 'love', 'you','baby'];
+arr['1'] = ['a', 'b', 'c','d'];
+arr['1'][1] = {a:'6y', b:'9z'};
+arr['2'] = {'k0':'va','k1':'vb'};
+arr['3'] = {};
+arr['4'] = null;
+
+var arrTree1=flprintr(arr);
+console.log(arrTree1);
+
+var arrTree2=flprintr(arr,'----');
+console.log(arrTree2);
+
+var arrTree3=flprintr(arr,'    ');
+console.log(arrTree3);
+</pre>
+
+
+
 </body>
 </html>
