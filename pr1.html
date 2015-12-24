@@ -18,6 +18,10 @@ Github:https://github.com/jiaju99/flprintr
 Author: http://feilong.org
 **/
 
+/*judge object or array */
+function flisarr(v){
+return toString.apply(v) === '[object Array]';
+}
 
 /*how many gaps to fill before */
 function flfillgap(gap,num){
@@ -28,7 +32,7 @@ return num ? new Array(num).join(gap) : '';
 /*now what to output */
 function flprintr(what,gap,deep){
 	 deep=deep?deep:0;
-  var floutput='',type=typeof(what);
+  var type=typeof(what),floutput='';
   
   switch(type){
 	case 'undefined' : floutput+='undefined';break;
@@ -36,6 +40,9 @@ function flprintr(what,gap,deep){
 	case 'string' : floutput+=what;break;
 		
 	case 'object' : {
+		
+		var isarr=flisarr(what);
+		if(isarr){floutput+='Array ';}else{floutput+='Object ';}
 	  
 	  deep++;//alert(deep);//1 2 3 4
 	  var deepgap = flfillgap(gap,deep);
@@ -99,7 +106,7 @@ console.log(arrTree3);
 <script>
 /** minified edition. Use this on your project **/
 
-/*github.com/jiaju99/flprintr*/function flfillgap(a,b){return a=a?a:'....',b?new Array(b).join(a):''}function flprintr(a,b,c){var d,e,f,g;switch(c=c?c:0,d='',e=typeof a,e){case'undefined':d+='undefined';break;case'number':d+=a;break;case'string':d+=a;break;case'object':c++,f=flfillgap(b,c),d+="\n"+f+'('+"\n",g=0;for(g in a)d+=f+' ['+g+']'+'=>'+flprintr(a[g],b,c)+"\n";d+=f+')'}return d}/*feilong.org20151223gz*/
+/*github.com/jiaju99/flprintr*/function flisarr(a){return'[object Array]'===toString.apply(a)}function flfillgap(a,b){return a=a?a:'....',b?new Array(b).join(a):''}function flprintr(a,b,c){var d,e,f,g,h;switch(c=c?c:0,d=typeof a,e='',d){case'undefined':e+='undefined';break;case'number':e+=a;break;case'string':e+=a;break;case'object':f=flisarr(a),e+=f?'Array ':'Object ',c++,g=flfillgap(b,c),e+="\n"+g+'('+"\n",h=0;for(h in a)e+=g+' ['+h+']'+'=>'+flprintr(a[h],b,c)+"\n";e+=g+')'}return e}/*feilong.org20151223gz*/
 
 
 
