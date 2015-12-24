@@ -1,5 +1,5 @@
 # print_r array or object in javascript
-<h2>Output the content of an js array or object, as PHP print_r() does.</h2>
+<h3>Output/return content of js array or object, as PHP print_r() </h3>
 <h3>打印 js对象数组 函数, 模仿php的print_r()</h3>
 <p>flprintr.js-fl20151223gz</p>
 
