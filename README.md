@@ -4,7 +4,7 @@
 <p>a0printr.js-fl20151223gz</p>
 
 <p>
-Github: <a href="https://github.com/jiaju99/a0printr" target="_blank">https://github.com/jiaju99/a0printr</a><br>
+Github: <a href="https://github.com/jiaju99/a0printr" target="_blank">https://github.com/jiaju99/js-print_r</a><br>
 Author: <a href="http://feilong.org" target="_blank">http://feilong.org</a></p>
 <p><b>what</b>, now what to output. default none<br>
 <b>gap</b>,  to insert before output</p>
