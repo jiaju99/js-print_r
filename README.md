@@ -1,7 +1,7 @@
 # var_dump or print_r array or object in javascript
 <h2>var_dump or print_r array or object in javascript, as PHP print_r() does.</h2>
 <h3>打印输出 js对象数组 函数, 模仿php的print_r()</h3>
-<p>a0printr.js-fl20151223gz</p>
+<p>a0printr.js-20171219gz</p>
 
 <p>
 Github: <a href="https://github.com/jiaju99/js-print_r" target="_blank">https://github.com/jiaju99/js-print_r</a><br>
