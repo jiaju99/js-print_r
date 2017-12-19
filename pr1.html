@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta  charset="utf-8" />
-<title>js printr array or object</title>
+<title>js print_r array or object</title>
 </head>
 <body>
 
@@ -12,54 +12,60 @@
 
 
 /**
-flprintr.js-fl20151223gz
-To output the content of an array or object as print_r() in PHP. 
-Github:https://github.com/jiaju99/flprintr
+a0printr.js-20171219gz
+print_r or var_dump an array or object in javascript as in PHP. 
+Github:https://github.com/jiaju99/a0printr
 Author: http://feilong.org
 **/
 
 /*judge object or array */
-function flisarr(v){
+function a0isarr(v){
 return toString.apply(v) === '[object Array]';
 }
 
 /*how many gaps to fill before */
-function flfillgap(gap,num){
+function a0fillgap(gap,num){
 gap=gap?gap:'....';/*just for development*/
 return num ? new Array(num).join(gap) : '';
 }/*0.5*/
 
 /*now what to output */
-function flprintr(what,gap,deep){
+function a0printr(what,gap,deep){
 	 deep=deep?deep:0;
-  var type=typeof(what),floutput='';
+  var type=typeof(what),a0output='';
   
   switch(type){
-	case 'undefined' : floutput+='undefined';break;
-	case 'number' : floutput+=what;break;
-	case 'string' : floutput+=what;break;
-		
+  
+	case 'boolean': a0output+=what; break;
+	case 'undefined' : a0output+='undefined';break;
+	case 'number' : a0output+=what;break;
+	case 'string' : a0output+=what;break;
+
 	case 'object' : {
-		
-		var isarr=flisarr(what);
-		if(isarr){floutput+='Array ';}else{floutput+='Object ';}
-	  
-	  deep++;//alert(deep);//1 2 3 4
-	  var deepgap = flfillgap(gap,deep);
-	  
-	  floutput += "\n"+deepgap+'('+"\n";  
-	  var i=0;for(i in what){
-	  floutput += deepgap+' ['+i+']'+'=>'+flprintr(what[i],gap,deep)+"\n";
-	  }  
-	  floutput += deepgap+')';
+		if(what==null){
+			a0output += what;
+		}else{
+			var isarr=a0isarr(what);
+			if(isarr){a0output+='Array ';}else{a0output+='Object ';}
+
+			deep++;//alert(deep);//1 2 3 4
+			var deepgap = a0fillgap(gap,deep);
+
+			a0output += "\n"+deepgap+'('+"\n";  
+			var i=0;for(i in what){
+			a0output += deepgap+' ['+i+']'+'=>'+a0printr(what[i],gap,deep)+"\n";
+			}  
+			a0output += deepgap+')';
+		}
 	  
 	  break;
 	}
   
   }
+  
 
-  return floutput;
-}/*0.5*/
+  return a0output;
+}/*0.5  a020151223gz*/
 
 </script>
 
@@ -68,13 +74,13 @@ function flprintr(what,gap,deep){
 
 
 
-# print_r array or object in javascript
-<h2>Output the content of an js array or object, as PHP print_r() does.</h2>
-<h3>打印 js对象数组 函数, 模仿php的print_r()</h3>
-<p>flprintr.js-fl20151223gz</p>
+# var_dump or print_r array or object in javascript
+<h2>ar_dump or print_r array or object in javascript, as PHP print_r() does.</h2>
+<h3>打印输出 js对象数组 函数, 模仿php的print_r()</h3>
+<p>a0printr.js-fl20151223gz</p>
 
 <p>
-Github: <a href="https://github.com/jiaju99/flprintr" target="_blank">https://github.com/jiaju99/flprintr</a><br>
+Github: <a href="https://github.com/jiaju99/a0printr" target="_blank">https://github.com/jiaju99/a0printr</a><br>
 Author: <a href="http://feilong.org" target="_blank">http://feilong.org</a></p>
 <p><b>what</b>, now what to output. default none<br>
 <b>gap</b>,  to insert before output</p>
@@ -82,7 +88,7 @@ Author: <a href="http://feilong.org" target="_blank">http://feilong.org</a></p>
 
 <h3>举例</h3>
 <pre>
-/** On your project,Use uglified flprintr **/
+/** On your project,Use uglified a0printr **/
 
 /* eg. have a test */
 var arr = [];
@@ -92,26 +98,26 @@ arr['1'][1] = {a:'6y', b:'9z'};
 arr['2'] = {'k0':'va','k1':'vb'};
 arr['3'] = {};
 arr['4'] = null;
+arr['5'] = [false, true, true,true];
 
-var arrTree1=flprintr(arr);
+
+
+var arrTree1=a0printr(arr);
 console.log(arrTree1);
 
-var arrTree2=flprintr(arr,'----');
+var arrTree2=a0printr(arr,'----');
 console.log(arrTree2);
 
-var arrTree3=flprintr(arr,'    ');
+var arrTree3=a0printr(arr,'    ');
 console.log(arrTree3);
 </pre>
 
 
 
 <script>
-/** minified edition. Use this on your project **/
-
-/*github.com/jiaju99/flprintr*/function flisarr(a){return'[object Array]'===toString.apply(a)}function flfillgap(a,b){return a=a?a:'....',b?new Array(b).join(a):''}function flprintr(a,b,c){var d,e,f,g,h;switch(c=c?c:0,d=typeof a,e='',d){case'undefined':e+='undefined';break;case'number':e+=a;break;case'string':e+=a;break;case'object':f=flisarr(a),e+=f?'Array ':'Object ',c++,g=flfillgap(b,c),e+="\n"+g+'('+"\n",h=0;for(h in a)e+=g+' ['+h+']'+'=>'+flprintr(a[h],b,c)+"\n";e+=g+')'}return e}/*feilong.org20151223gz*/
 
 
-
+/** On your project,Use uglified a0printr **/
 
 /* eg. have a test */
 var arr = [];
@@ -121,14 +127,17 @@ arr['1'][1] = {a:'6y', b:'9z'};
 arr['2'] = {'k0':'va','k1':'vb'};
 arr['3'] = {};
 arr['4'] = null;
+arr['5'] = [false, true, true,true];
 
-var arrTree=flprintr(arr,'----');
-console.log(arrTree);
 
-var arrTree2=flprintr(arr);
+
+var arrTree1=a0printr(arr);
+console.log(arrTree1);
+
+var arrTree2=a0printr(arr,'----');
 console.log(arrTree2);
 
-var arrTree3=flprintr(arr,'    ');
+var arrTree3=a0printr(arr,'    ');
 console.log(arrTree3);
 </script>
 
